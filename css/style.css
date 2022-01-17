@@ -10,6 +10,7 @@ h1, h2{
     padding: 10px 15px;
     border-radius: 5px;
     box-shadow: 0 0 10px 0 #6D6D6D; 
+    cursor: pointer;
 }
 *{
     margin: 0;
@@ -43,6 +44,7 @@ select#level-select, button{
     background-color: white;
     box-shadow: 0 0 10px 0 #6D6D6D; 
     text-align: center;
+    cursor: pointer;
 }
 button{
     margin-top: 5px;
@@ -54,7 +56,6 @@ button{
     height: 60px;
     width: 60px;
     background-color: #B3B3B3;
-    color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,6 +97,10 @@ button{
     text-align: center;
     color: white;
     background-color: grey;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .background-img{
     background-image: url('../img/img.jpg');

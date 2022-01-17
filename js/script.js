@@ -14,12 +14,12 @@ la cella cliccata si colora di azzurro. */
 // ** Funzione che genera la cella
 function generateCell(cellInRow, i) {
     const newElement = document.createElement('div');
+    const number = i + 1;
     newElement.classList.add('cell');
-    newElement.innerText = i + 1;
+    newElement.innerHTML = `<span>${number}</span>`;
     // Style
-    newElement.style.width = `calc(600px / ${cellInRow} )`;
-    newElement.style.height = `calc(600px / ${cellInRow})`;
-    newElement.style.lineHeight = `calc(600px / ${cellInRow})`;
+    newElement.style.width = `calc(100% / ${cellInRow} )`;
+    newElement.style.height = `calc(100% / ${cellInRow})`;
     return newElement;
 }
 
@@ -63,6 +63,7 @@ button.addEventListener('click', function () {
 
         newElement.addEventListener('click', () => {
             newElement.classList.toggle('clicked');
+            newElement.innerText = '';
         });
 
         grid.appendChild(newElement);
