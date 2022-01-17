@@ -53,6 +53,9 @@ button.addEventListener('click', function () {
     // 4 Numero di celle
     const numberOfElement = elementForRow * elementForRow;
     console.log(numberOfElement);
+    // 5 Reset griglia
+    grid.innerHTML = '';
+
     for (let i = 0; i < numberOfElement; i++) {
         const newElement = generateCell(elementForRow, i);
 
