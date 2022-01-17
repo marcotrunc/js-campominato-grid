@@ -12,18 +12,52 @@ la cella cliccata si colora di azzurro. */
 
 // ! Funzioni he mi aspetto, generare griglia
 // ** Funzione che genera la griglia
-function generateGrid(maxElement, elementInPage) {
+function generateGrid(maxElement, elementInPage, cellInRow) {
     for (let i = 0; i < maxElement; i++) {
         const newElement = document.createElement('div');
         newElement.classList.add('cell');
+        newElement.innerText = i + 1;
+        // Style
+        newElement.style.width = `calc(700px / ${cellInRow} )`;
+        newElement.style.height = `calc(700px / ${cellInRow})`;
+        newElement.style.lineHeight = `calc(700px / ${cellInRow})`;
         elementInPage.appendChild(newElement);
     }
 }
-// 1 Prendo elementi dal Dom
-const grid = document.getElementById('grid');
 
-const maxElement = 64;
-generateGrid(64, grid);
-/* 2 Assegno alle varibiali delle dimensioni in base alla
-difficoltà*/
+//** Funzione che mi permette di ricavare le celle per riga
+function getLevel(levelValue, num) {
+    if (levelValue === 'first-level') {
+        return num = 10;
+    } else if (levelValue === 'second-level') {
+        return num = 9;
+    }
+    return num = 7;
+}
+// !------------------------------------------------------
+
+//** 1 Prendo elementi dal Dom
+const grid = document.getElementById('grid');
+const levelField = document.getElementById('level-select');
+const button = document.getElementById('button');
+
+
 // 3 Assegno una lunghezza diversa a numero di elementi
+
+
+
+// !----------------------------------------
+// ! PROGRAMMA PRINCIPALE
+// !----------------------------------------
+
+button.addEventListener('click', function () {
+    // 4 Acquisisco dati
+    const level = levelField.value;;
+    // 5 Associo al livello un numero di celle 
+    let cell;
+    const elementForRow = getLevel(level, cell);
+    console.log(getLevel(level, cell));
+    const numberOfElement = elementForRow * elementForRow;
+    console.log(elementForRow);
+    generateGrid(numberOfElement, grid, elementForRow);
+});

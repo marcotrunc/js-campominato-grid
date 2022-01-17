@@ -34,7 +34,7 @@
     flex-wrap: wrap;
 }
 .cell{
-    width: calc(700px / 8);
-    height: calc(700px / 8);
     border: 1px solid white;
+    text-align: center;
+    color: white;
 }
