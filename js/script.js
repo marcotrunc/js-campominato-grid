@@ -63,4 +63,5 @@ button.addEventListener('click', function () {
 
         grid.appendChild(newElement);
     }
+    grid.classList.add('background-img');
 });

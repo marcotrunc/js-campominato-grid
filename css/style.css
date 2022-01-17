@@ -1,3 +1,7 @@
+/*Utilities */
+.f-size-4{ 
+    font-size: 20px;
+}
 *{
     margin: 0;
     padding: 0;
@@ -8,7 +12,7 @@
     max-width: 1200px;
     height: 100vh;
     background-image: lightgrey;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 /** Header **/
 #grid-header{
@@ -32,12 +36,20 @@
     margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
+   
 }
 .cell{
     border: 1px solid white;
     text-align: center;
     color: white;
+    background-color: grey;
+}
+.background-img{
+    background-image: url('../img/img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .clicked{
-    background-color: lightskyblue;
+    background-color: transparent;
 }
