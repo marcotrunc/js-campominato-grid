@@ -10,16 +10,16 @@ con difficoltà 3 => tra 1 e 49
 Quando l'utente clicca su ogni cella,
 la cella cliccata si colora di azzurro. */
 
-// ! Funzioni he mi aspetto, generare griglia
+// ! Funzioni
 // ** Funzione che genera la cella
 function generateCell(cellInRow, i) {
     const newElement = document.createElement('div');
     newElement.classList.add('cell');
     newElement.innerText = i + 1;
     // Style
-    newElement.style.width = `calc(700px / ${cellInRow} )`;
-    newElement.style.height = `calc(700px / ${cellInRow})`;
-    newElement.style.lineHeight = `calc(700px / ${cellInRow})`;
+    newElement.style.width = `calc(600px / ${cellInRow} )`;
+    newElement.style.height = `calc(600px / ${cellInRow})`;
+    newElement.style.lineHeight = `calc(600px / ${cellInRow})`;
     return newElement;
 }
 
@@ -35,27 +35,28 @@ function getLevel(levelValue) {
 }
 // !------------------------------------------------------
 
-//** 1 Prendo elementi dal Dom
+// ? Prendo elementi dal Dom
 const grid = document.getElementById('grid');
 const levelField = document.getElementById('level-select');
 const button = document.getElementById('button');
+
 // !----------------------------------------
 // ! PROGRAMMA PRINCIPALE
 // !----------------------------------------
 
 button.addEventListener('click', function () {
-    // 2Acquisisco dati
+    // 1 Acquisisco dati
     const level = levelField.value;
     console.log(level);
-    // 3 Associo al livello un numero di celle per riga
+    // 2 Associo al livello un numero di celle per riga
     const elementForRow = getLevel(level);
     console.log(getLevel(level));
-    // 4 Numero di celle
+    // 3 Numero di celle
     const numberOfElement = elementForRow * elementForRow;
     console.log(numberOfElement);
-    // 5 Reset griglia
+    // 4 Reset griglia
     grid.innerHTML = '';
-
+    // 5 Costruzione griglia
     for (let i = 0; i < numberOfElement; i++) {
         const newElement = generateCell(elementForRow, i);
 
@@ -66,5 +67,6 @@ button.addEventListener('click', function () {
 
         grid.appendChild(newElement);
     }
+    // 6 Aggunto background di sfondo
     grid.classList.add('background-img');
 });
