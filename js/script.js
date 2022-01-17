@@ -11,28 +11,27 @@ Quando l'utente clicca su ogni cella,
 la cella cliccata si colora di azzurro. */
 
 // ! Funzioni he mi aspetto, generare griglia
-// ** Funzione che genera la griglia
-function generateGrid(maxElement, elementInPage, cellInRow) {
-    for (let i = 0; i < maxElement; i++) {
-        const newElement = document.createElement('div');
-        newElement.classList.add('cell');
-        newElement.innerText = i + 1;
-        // Style
-        newElement.style.width = `calc(700px / ${cellInRow} )`;
-        newElement.style.height = `calc(700px / ${cellInRow})`;
-        newElement.style.lineHeight = `calc(700px / ${cellInRow})`;
-        elementInPage.appendChild(newElement);
-    }
+// ** Funzione che genera la cella
+function generateCell(cellInRow, i) {
+    const newElement = document.createElement('div');
+    newElement.classList.add('cell');
+    newElement.innerText = i + 1;
+    // Style
+    newElement.style.width = `calc(700px / ${cellInRow} )`;
+    newElement.style.height = `calc(700px / ${cellInRow})`;
+    newElement.style.lineHeight = `calc(700px / ${cellInRow})`;
+    return newElement;
 }
 
 //** Funzione che mi permette di ricavare le celle per riga
-function getLevel(levelValue, num) {
+function getLevel(levelValue) {
     if (levelValue === 'first-level') {
-        return num = 10;
+        return 10;
     } else if (levelValue === 'second-level') {
-        return num = 9;
+        return 9;
+    } else {
+        return 7;
     }
-    return num = 7;
 }
 // !------------------------------------------------------
 
@@ -40,24 +39,28 @@ function getLevel(levelValue, num) {
 const grid = document.getElementById('grid');
 const levelField = document.getElementById('level-select');
 const button = document.getElementById('button');
-
-
-// 3 Assegno una lunghezza diversa a numero di elementi
-
-
-
 // !----------------------------------------
 // ! PROGRAMMA PRINCIPALE
 // !----------------------------------------
 
 button.addEventListener('click', function () {
-    // 4 Acquisisco dati
-    const level = levelField.value;;
-    // 5 Associo al livello un numero di celle 
-    let cell;
-    const elementForRow = getLevel(level, cell);
-    console.log(getLevel(level, cell));
+    // 2Acquisisco dati
+    const level = levelField.value;
+    console.log(level);
+    // 3 Associo al livello un numero di celle per riga
+    const elementForRow = getLevel(level);
+    console.log(getLevel(level));
+    // 4 Numero di celle
     const numberOfElement = elementForRow * elementForRow;
-    console.log(elementForRow);
-    generateGrid(numberOfElement, grid, elementForRow);
+    console.log(numberOfElement);
+    for (let i = 0; i < numberOfElement; i++) {
+        const newElement = generateCell(elementForRow, i);
+
+
+        newElement.addEventListener('click', () => {
+            newElement.classList.toggle('clicked');
+        });
+
+        grid.appendChild(newElement);
+    }
 });
