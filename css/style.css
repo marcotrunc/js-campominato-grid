@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/** Container **/
+.container{
+    max-width: 1200px;
+    height: 100vh;
+    background-image: lightgrey;
+    margin: 0 auto;
+}
+/** Header **/
+#grid-header{
+    background-color: white;
+    padding: 3rem;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    align-items: center;
+}
+/** Main **/
+#grid-main{
+    border: 1px solid grey;
+    width: 100%;
+}
+#grid{
+    width: 700px;
+    height: 700px;
+    background-color: dodgerblue;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cell{
+    width: calc(700px / 8);
+    height: calc(700px / 8);
+    border: 1px solid white;
+}
